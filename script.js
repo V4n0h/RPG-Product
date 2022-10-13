@@ -24,9 +24,19 @@ for (var prop in holder) {
   obj2.push({ name: prop, points: holder[prop] });
 }
 
-//obj2.sort(function(a, b){return b-a});
+var masterList = obj2.sort(function(a, b){return b.points - a.points});
 
-//console.log(obj2)
+console.log(masterList)
 
-document.getElementById("greeting").innerHTML = obj2[0].name;
+document.getElementById("greeting").innerHTML = 
+masterList[0].name + '\n' +
+masterList[1].name + ' ' +
+masterList[2].name + ' ' +
+masterList[3].name + ' ' +
+masterList[4].name + ' ' +
+masterList[5].name + ' ' +
+masterList[6].name + ' ' +
+masterList[7].name + ' ' +
+masterList[8].name + ' ' +
+masterList[9].name ;
 

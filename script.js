@@ -5,9 +5,28 @@ let ross = [{name: 'Mork Borg', points: 10}, {name: 'Death In Space', points: 9}
 let sam = [{name: 'Mork Borg', points: 10}, {name: 'Hunter The Reckoning', points: 9}, {name: 'Modern Age', points: 8}, {name: 'Azag', points: 7}, {name: 'Death In Space', points: 6}, {name: 'Fantasy Age', points: 5}, {name: 'Traveller', points: 4}, {name: 'Warhammer Fantasy', points: 3}, {name: 'Stars Without Number', points: 2}, {name: '13th Age', points: 1}]
 let blake = [{name: 'Modern Age', points: 10}, {name: 'Stars Without Number', points: 9}, {name: 'Traveller', points: 8}, {name: 'Hunter The Reckoning', points: 7}, {name: 'Cy_Borg', points: 6}, {name: 'Death In Space', points: 5}, {name: 'Warhammer Fantasy', points: 4}, {name: 'Fantasy Age', points: 3}, {name: 'Worlds Without Number', points: 2}, {name: 'Mork Borg', points: 1}]
 
-// // Update header text
+let dataArray = [...mack, ...travis, ...jon, ...ross, ...sam, ...blake];
 
-document.getElementById("greeting").innerHTML =mack;
 
-// Log to console
-console.log(mack);
+var holder = {};
+
+dataArray.forEach(function(d) {
+  if (holder.hasOwnProperty(d.name)) {
+    holder[d.name] = holder[d.name] + d.points;
+  } else {
+    holder[d.name] = d.points;
+  }
+});
+
+var obj2 = [];
+
+for (var prop in holder) {
+  obj2.push({ name: prop, points: holder[prop] });
+}
+
+//obj2.sort(function(a, b){return b-a});
+
+//console.log(obj2)
+
+document.getElementById("greeting").innerHTML = obj2[0].name;
+
